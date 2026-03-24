@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Machine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(27, 27, 27);
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        select,
+        button {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: green;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        #div_output {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: black;
+            border: 1px solid #63666A;
+            text-align: left;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <h1>ASCII Machine</h1>
+        <input id="input_ascii" type="text" placeholder="Digite um caracter" maxlength="1">
+        <br><br>
+        <button onclick="converterCaracter()">Converter</button>
+        <div id="div_output"></div>
+    </div>
+</body>
+
+<script>
+    function converterCaracter() {
+
+        var caractere = input_ascii.value;
+        var decimal = caractere.charCodeAt();
+
+        div_output.style.display = 'block';
+
+        div_output.innerHTML += "<b style= 'color: Green';>Caracter selecionado: </b>" + `<span style= 'color: Green';>${caractere}</span>` + '<<br><br>';
+        div_output.innerHTML += "<b style= 'color: Green';>Decimal: </b>" + `<span style= 'color: Green';>${decimal}</span>` + '<br>';
+        div_output.innerHTML += "<b style= 'color: Green';>Binário: </b>" + `<span style= 'color: Green';>${decimal.toString(2)}</span>` + '<br>';
+        div_output.innerHTML += "<b style= 'color: Green';>Hexadecimal: </b>" + `<span style= 'color: Green';>${decimal.toString(16)}</span>` + '<br>';
+        div_output.innerHTML += "<b style= 'color: Green';>Octal: </b>" + `<span style= 'color: Green';>${decimal.toString(8)}</span>` + '<br><br>';
+    }
+</script>
+
+</html>
