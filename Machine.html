@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Machine</title>
+    <title>Supa Machine</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,21 +24,21 @@
             color: green;
         }
 
+        h3 {
+            color: green;
+        }
+
         input[type="text"] {
             padding: 8px;
             font-size: 16px;
             border-radius: 5px;
         }
 
-        select,
         button {
             padding: 8px;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-        button {
             background-color: green;
             color: #FFFFFF;
             border: none;
@@ -53,33 +54,35 @@
             display: none;
         }
     </style>
-
 </head>
 
 <body>
+
     <div id="container">
-        <h1>ASCII Machine</h1>
-        <input id="input_ascii" type="text" placeholder="Digite um caracter" maxlength="1">
+        <h1>Supa Machine</h1>
+
+        <h3>Digite um número decimal:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 42">
         <br><br>
-        <button onclick="converterCaracter()">Converter</button>
+
+        <button onclick="converter()">Converter</button>
+
         <div id="div_output"></div>
     </div>
+
+    <script>
+        function converter() {
+            let decimal = Number(demo1.value);
+
+            div_output.style.display = 'block';
+
+            div_output.innerHTML += "<b style='color: green;'>Decimal inserido: </b>" + `<span style='color: green;'>${decimal}</span>` + '<br>';
+            div_output.innerHTML += "<b style='color: green;'>Valor Binário: </b>" + `<span style='color: green;'>${decimal.toString(2)}</span>` + '<br>';
+            div_output.innerHTML += "<b style='color: green;'> Valor Hexadecimal: </b>" + `<span style='color: green;'>${decimal.toString(16)}</span>` + '<br>';
+            div_output.innerHTML += "<b style='color: green;'>Valor Octal: </b>" + `<span style='color: green;'>${decimal.toString(8)}</span>` + '<br><br>';
+        }
+    </script>
+
 </body>
-
-<script>
-    function converterCaracter() {
-
-        var caractere = input_ascii.value;
-        var decimal = caractere.charCodeAt();
-
-        div_output.style.display = 'block';
-
-        div_output.innerHTML += "<b style= 'color: Green';>Caracter selecionado: </b>" + `<span style= 'color: Green';>${caractere}</span>` + '<<br><br>';
-        div_output.innerHTML += "<b style= 'color: Green';>Decimal: </b>" + `<span style= 'color: Green';>${decimal}</span>` + '<br>';
-        div_output.innerHTML += "<b style= 'color: Green';>Binário: </b>" + `<span style= 'color: Green';>${decimal.toString(2)}</span>` + '<br>';
-        div_output.innerHTML += "<b style= 'color: Green';>Hexadecimal: </b>" + `<span style= 'color: Green';>${decimal.toString(16)}</span>` + '<br>';
-        div_output.innerHTML += "<b style= 'color: Green';>Octal: </b>" + `<span style= 'color: Green';>${decimal.toString(8)}</span>` + '<br><br>';
-    }
-</script>
 
 </html>
